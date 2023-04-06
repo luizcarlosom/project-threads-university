@@ -12,7 +12,6 @@ int main(void){
     //hora
     int horas = tm -> tm_hour;
     int minutos = tm -> tm_min;
-    int segundos = tm -> tm_sec;
 
     //data
     int mes = tm -> tm_mon + 1;
@@ -22,7 +21,7 @@ int main(void){
     char concatenacao[100];//variavel onde concateno todos os dados do arquivo
     
     //Abrindo ou criando o arquivo
-    pont_arq = fopen("REGISTRO2.txt", "w");
+    pont_arq = fopen("../../REGISTRO_GERAL.txt", "a");
     printf("Arquivo criado  ou aberto!");
 
     //verificando se o arquivo foi aberto
@@ -31,14 +30,14 @@ int main(void){
         printf("ERR0!");
         return 1;
     }else{
-        
-        while(contador <= 10000){
-            sprintf(concatenacao, "2 programa2 - Thread%d - Data: %02d/%02d/%d Horário: %02d:%02d:%02d ", contador, dia, mes, ano, horas, minutos, segundos);//função que vai juntar todos os dados e colocar em uma só variavel "concatenacao"
+  
+        while(contador <= 100000){
+            sprintf(concatenacao, "2 programa2 - Thread%d - Data: %02d/%02d/%d Horário: %02d:%02d ", contador, dia, mes, ano, horas, minutos);//função que vai juntar todos os dados e colocar em uma só variavel "concatenacao"
             fprintf(pont_arq, "%s\n", concatenacao);//função que escreve dentro do arquivo "pont_arq"
 
             contador++;//incrementando
         }
-        
+       
         fclose(pont_arq);//fechando o arquivo
         printf("Arquivo fechado!");
     }
