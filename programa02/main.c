@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <time.h>
+#include <Windows.h>
 
 int main(void){
 
@@ -32,6 +33,7 @@ int main(void){
     }else{
   
         while(contador <= 100000){
+            
             sprintf(concatenacao, "2 programa2 - Thread%d - Data: %02d/%02d/%d Horário: %02d:%02d ", contador, dia, mes, ano, horas, minutos);//função que vai juntar todos os dados e colocar em uma só variavel "concatenacao"
             fprintf(pont_arq, "%s\n", concatenacao);//função que escreve dentro do arquivo "pont_arq"
 
